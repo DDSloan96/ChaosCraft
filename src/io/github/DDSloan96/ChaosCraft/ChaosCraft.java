@@ -9,5 +9,6 @@ public final class ChaosCraft extends JavaPlugin {
 	}
 	@Override
 	public void onDisable(){
+		getLogger().info("ChaosCraft is shutting down");
 	}
 }
