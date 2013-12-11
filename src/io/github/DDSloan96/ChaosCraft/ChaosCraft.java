@@ -12,8 +12,6 @@ public final class ChaosCraft extends JavaPlugin {
 	@Override
 	public void onEnable(){
 		getLogger().info("Hello World");
-		System.out.println("test");
-		//registerCommands();
 	}
 	 public void onPlayerLogin(PlayerLoginEvent event) {
          getLogger().info("Someone has joined your server! :D");
@@ -24,18 +22,24 @@ public final class ChaosCraft extends JavaPlugin {
 	}
 	public boolean onCommand(CommandSender sender, Command cmd, String label,String[] args) {
 		String command=cmd.getName();		
-		if (args.length < 1) {
-	           sender.sendMessage("Not enough arguments!");
-	           return false;
-	        }
+		
 		if (command.equalsIgnoreCase("slap")){
-			//Player player=(Player)sender;
-			sender.sendMessage("Command Sent");
-			Bukkit.broadcastMessage("Slapped");
+			if (args.length < 1) {
+		           sender.sendMessage("Not enough arguments!");
+		           return false;
+		        }
+			else{//Player player=(Player)sender;
+				sender.sendMessage("Command Sent");
+				Bukkit.broadcastMessage("Slapped");
+				Player target=(Bukkit.getServer().getPlayer(args[0]));
+				Location loc=new Location(target.getServer().getWorld("world"), target.getLocation().getX(),target.getLocation().getY()+300,target.getLocation().getZ());
+				target.teleport(loc);
+				return true;
+			}
+		}
+		if(command.equalsIgnoreCase("h5")){
 			Player target=(Bukkit.getServer().getPlayer(args[0]));
-			Location loc=new Location(target.getServer().getWorld("world"), target.getLocation().getX(),target.getLocation().getY()+300,target.getLocation().getZ());
-			target.teleport(loc);
-			return true;
+			Bukkit.broadcastMessage(sender.getName()+" Highfived "+target.getName());
 		}
 		return false;
 		
