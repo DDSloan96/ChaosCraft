@@ -1,3 +1,8 @@
 name: ChaosCraft
 main: io.github.DDSloan96.ChaosCraft.ChaosCraft
 version: 0.0.1
+
+commands:
+  slap:
+    description: Slaps you to the moon
+    usage: /<command> [player]
