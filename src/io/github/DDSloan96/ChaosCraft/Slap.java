@@ -9,15 +9,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class Slap implements CommandExecutor {
-
-	public Slap(ChaosCraft plugin) {
-		
+	public Slap(ChaosCraft plugin) {	
 	}
-
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label,String[] args) {
 		String command=cmd.getName();
-		
 		if(sender instanceof Player){
 			if (args[0]==null){
 				sender.sendMessage("Please input an online player's name");
